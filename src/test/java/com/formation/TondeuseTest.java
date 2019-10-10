@@ -27,13 +27,15 @@ public class TondeuseTest {
 	@Test
 	public void useCase1() {
 		Tondeuse t = new Tondeuse(1, 2, Direction.NORTH);
-		assertEquals(new Tondeuse(1, 3, Direction.NORTH), TondeuseHelper.moveWithActions(t, "GAGAGAGAA"));
+		t.moveWithActions( "GAGAGAGAA");
+		assertEquals(new Tondeuse(1, 3, Direction.NORTH), t);
 	}
 
 	@Test
 	public void useCase2()  {
-		Tondeuse mower = new Tondeuse(3, 3, Direction.EAST);
-		assertEquals(new Tondeuse(5, 1, Direction.EAST), TondeuseHelper.moveWithActions(mower, "AADAADADDA"));
+		Tondeuse tondeuse = new Tondeuse(3, 3, Direction.EAST);
+		tondeuse.moveWithActions( "AADAADADDA");
+		assertEquals(new Tondeuse(5, 1, Direction.EAST), tondeuse);
 	}
 
 

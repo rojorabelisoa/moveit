@@ -1,7 +1,6 @@
 package com.formation.game;
 
 import com.formation.Tondeuse;
-import com.formation.TondeuseHelper;
 
 public class TondeuseInstruction {
 	private Tondeuse tondeuse;
@@ -11,8 +10,8 @@ public class TondeuseInstruction {
 		super();
 		this.tondeuse = tondeuse;
 		this.action = action;
-		Tondeuse t = new Tondeuse(tondeuse.getX(),tondeuse.getY(),tondeuse.getDirection());
-		this.result = TondeuseHelper.moveWithActions(t, action);
+		this.result = new Tondeuse(tondeuse.getX(),tondeuse.getY(),tondeuse.getDirection());
+		this.result.moveWithActions( action);
 	}
 	public Tondeuse getResult() {
 		return result;

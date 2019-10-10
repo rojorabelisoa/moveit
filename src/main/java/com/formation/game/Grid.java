@@ -23,7 +23,7 @@ public class Grid {
 		this.tondeuseInstruction = tondeuseInstruction;
 	}
 	
-	public static Grid build(String filename) throws IOException {
+	public static Grid buildGridWithFile(String filename) throws IOException {
 		List<String> fileContent = FileUtils.readFile(filename);
 		String[] area = fileContent.get(0).split(" ");
 		int width = Integer.valueOf(area[0]);

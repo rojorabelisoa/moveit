@@ -16,7 +16,7 @@ public class Tondeuse {
 		this.y = y;
 		this.direction = direction;
 	}
-	
+
 	public Tondeuse(String x, String y, String direction) {
 		Objects.requireNonNull(x);
 		Objects.requireNonNull(y);
@@ -32,6 +32,18 @@ public class Tondeuse {
 
 	public void moveRigth() {
 		this.direction = this.direction.getNext();
+	}
+
+	public void moveWithActions(String instruction) {
+		// parse orders
+		Action[] actions = new Action[instruction.length()];
+		for (int i = 0; i < instruction.length(); i++) {
+			actions[i] = Action.parse(instruction.charAt(i));
+		}
+		// for each orders, make the action
+		for (Action action : actions) {
+			action.move(this);
+		}
 	}
 
 	public void moveForward() {
@@ -107,7 +119,6 @@ public class Tondeuse {
 	public String toString() {
 		return "Tondeuse [x=" + x + ", y=" + y + ", direction=" + direction + "]";
 	}
-	
-	
+
 
 }
